@@ -1,0 +1,51 @@
+<!--<%---------- 全部商品 ----------%>-->
+<div id="pageGoods" ng-controller="goodsController">
+    <div id="pageGoods_inner">
+        <div id="goodsOptBox">
+            <div id="chooseSoldNum">销量优先</div>
+            <div id="chooseKinds" onclick="showKinds();">筛选</div>
+        </div>
+        <div id="goodsListBox">
+            <div id="goodsList">
+                <!--点击筛选 - 弹窗-->
+                <div id="goods_chooseClick" ng-controller="kindsController">
+                    <div id="goods_kindsBg" onclick="hideKinds();"></div>
+                    <div id="goods_kinds"> <!-- 主体内容 -->
+                        <div id="goods_flower">
+                            <div class="goods_kinds_t">时尚花茶</div>
+                            <div class="goods_kinds_box">
+                                <a href="#/kindsGoods/{{f.id}}" ng-repeat="f in flower">{{f.name}}</a>
+                            </div>
+                        </div>
+                        <div id="goods_main">
+                            <div class="goods_kinds_t">经典茶系</div>
+                            <div class="goods_kinds_box">
+                                <a href="#/kindsGoods/{{item.id}}" ng-repeat="item in main">{{item.name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--每件商品-->
+                <div class="goodsBox" ng-repeat="item in data">
+                    <a href="#/detail/{{item.id}}" >
+                    <div class="goodsPic"><img src="{{imageURL}}goodsImages/{{item.firstImage}}"></div>
+                    <div class="goodsInfo">
+                        <div class="goodsName ellipsis">{{item.name}}</div>
+                        <div class="goodsPrice">
+                            <span>&yen;{{item.currentPrice}}</span>
+                            <span>&yen;{{item.originalPrice}}</span>
+                        </div>
+                        <div class="goodsOthers">
+                            <div>{{item.soldNumber}}人已购买</div>
+                            <div>{{item.field}}</div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

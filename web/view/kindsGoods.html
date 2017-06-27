@@ -1,0 +1,23 @@
+<!--商品分类显示-->
+<div id="kindsGoodsPage" ng-controller="kindsGoodsController">
+    <div id="kgTitle"><a href="#/kinds"><i class="icon-left-open"></i></a>{{kindsName}}</div>
+    <div id="kgMain">
+        <div class="goodsBox" ng-repeat="item in data">
+            <a href="#/detail/{{item.id}}" >
+                <div class="goodsPic"><img src="{{imageURL}}goodsImages/{{item.firstImage}}"></div>
+                <div class="goodsInfo">
+                    <div class="goodsName ellipsis">{{item.name}}</div>
+                    <div class="goodsPrice">
+                        <span>&yen;{{item.currentPrice}}</span>
+                        <span>&yen;{{item.originalPrice}}</span>
+                    </div>
+                    <div class="goodsOthers">
+                        <div>{{item.soldNumber}}人已购买</div>
+                        <div>{{item.field}}</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="kgBot">暂无更多</div>
+</div>

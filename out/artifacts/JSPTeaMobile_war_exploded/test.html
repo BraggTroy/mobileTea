@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="lib/jquery.js"></script>
+</head>
+<body>
+<!--<img id="img1" src="images/goodsImages/f07e7fd4-b458-44fa-90e3-52daff2c1950.jpg">-->
+<!--<img id="img2" src="images/goodsImages/01e61681-138d-424d-81be-23aa96abfeab.jpg">-->
+<!--<img id="img3" src="images/goodsImages/c08dcb61-436e-44e6-abc6-23c9a7a63839.jpg">-->
+<!--<div id="div1"></div>-->
+
+<div id="main">
+    <div id="m">123</div>
+    <div id="n">456</div>
+</div>
+<script>
+    function funReplaceNode(){
+        var oNewP = document.getElementById("m");
+        var oNewDiv = document.createElement("div");
+        oNewDiv.innerHTML = "<p>这是一段后来被插入的文字！</p>";
+        $(oNewP).replaceWith($(oNewDiv));
+    }
+    funReplaceNode();
+//    $("#m").addEventListener('click',function(){})
+</script>
+
+<style>
+    /*#img1{*/
+        /*width: 400px; height: 400px;*/
+        /*transition: opacity 1s ease-in-out ;*/
+    /*}*/
+    /*#img1:hover{*/
+        /*width: 600px; height: 600px;*/
+        /*opacity:0;*/
+    /*}*/
+    #div1{
+        width: 600px;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        -webkit-animation-name: changeImg;
+        -webkit-animation-duration: 9s;
+        -webkit-animation-iteration-count: infinite;
+
+    }
+    @-webkit-keyframes changeImg{
+        0% {background: url("images/goodsImages/f07e7fd4-b458-44fa-90e3-52daff2c1950.jpg") no-repeat;}
+        50% {background: url("images/goodsImages/01e61681-138d-424d-81be-23aa96abfeab.jpg") no-repeat;}
+        100% {background: url("images/goodsImages/c08dcb61-436e-44e6-abc6-23c9a7a63839.jpg") no-repeat;}
+    }
+</style>
+<script>
+//    var arr = [1,2,"a",0];
+//    var str = 123;
+//    var json = {id:"1",name:"2"};
+//    var a;
+//    var b = null;
+//    var c = undefined;
+//    var d = false;
+////    var f = Number("1.2v");
+//
+//    str = String(str);
+//
+//    console.log(arr.join());
+//
+//    console.log(typeof arr);
+//    console.log(typeof str);
+//    console.log(typeof json);
+//    console.log(typeof a);
+//    console.log(typeof b);
+//    console.log(typeof c);
+//    console.log(typeof d);
+//    console.log(typeof f);
+
+//    console.log(arr instanceof Array);
+
+function Parent(firstname)
+{
+    this.fname=firstname;
+    this.age=40;
+    this.sayAge=function()
+    {
+        console.log(this.age);
+    }
+}
+function Child(firstname)
+{
+    this.saySomeThing=function()
+    {
+        console.log(this.fname);
+        this.sayAge();
+    };
+    this.getName=function()
+    {
+        return firstname;
+    }
+
+}
+var child=new Child("张");
+Parent.call(child,child.getName());
+child.saySomeThing();
+
+
+//console.log("_______________________");
+//console.log(0.1 + 0.2);
+//console.log(0.1 + 0.2 ==  0.3);
+//console.log("_______________________");
+//console.log(1 + "2" + "2");
+//console.log(1 + +"2" + "2");
+//console.log(1 + -"1" + "2");
+//console.log(+"1" + "1" + "2");
+//console.log( "A" - "B" + "2");
+//console.log( "A" - "B" + 2);
+console.log("_______________________");
+//console.log(typeof (+"2"));
+var bar;
+var foo = foo||bar;
+    console.log(foo);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div id="pageKinds" ng-controller="kindsController">
+
+    <div id="kindsMain">
+        <div id="kindsTitle"><a href="#/"><i class="icon-left-open"></i></a>全部分类</div>
+        <!--全部经典茶系-->
+        <div class="kindsBlock clearFix">
+            <div><span class="kinds_classifyName">经典茶系</span></div>
+            <div class="kindsBox" ng-repeat="item in main">
+                <a href="#/kindsGoods/{{item.id}}">
+                <div class="kindsImage"><img src="{{imageURL}}kindsImages/{{item.image}}"> </div>
+                <div class="kindsName">{{item.name}}</div>
+                </a>
+            </div>
+        </div>
+
+        <!--全部花茶-->
+        <div class="kindsBlock clearFix">
+            <div><span class="kinds_classifyName">时尚花茶</span></div>
+            <div class="kindsBox" ng-repeat="f in flower">
+                <a href="#/kindsGoods/{{f.id}}">
+                <div class="kindsImage"><img src="{{imageURL}}kindsImages/{{f.image}}"> </div>
+                <div class="kindsName">{{f.name}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

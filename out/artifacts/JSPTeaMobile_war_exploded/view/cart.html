@@ -1,0 +1,99 @@
+<!--<%---------- 购物车 -----------%>-->
+<div id="pageCart" ng-controller="cartController">
+    <!-- 购物车标题 - 覆盖搜索框 -->
+    <div id="cartTitle">
+        <p><a href="#/"><i class="icon-left-open"></i></a>购物车</p>
+    </div>
+
+    <!----- 购物车主体内容 ----->
+    <div id="cartMain">
+        <!--未登录时-->
+        <div id="cartMain_inner" ng-if="null == user">
+            <div id="cart_logout">
+                <p>尚未登录<i class="icon-emo-coffee"></i> &nbsp;&nbsp;你想要的这里都有！</p>
+                <p><a href="#/login">点击登录</a></p>
+            </div>
+        </div>
+
+        <!--当登录时-->
+        <div id="cartMain_inner" ng-if="null != user">
+
+            <div class="cartGoods" ng-repeat="item in data">
+                <!--购物车商品头部操作-->
+                <div class="cartGoods_opt">
+                    <div class="view_detail">
+                        <a href="#/detail/{{item.goods.id}}"><i class="icon-envira"></i> 查看商品详情 <i class="icon-right-open"></i></a>
+                    </div>
+                    <div class="cartGoods_edit">
+                        <button class="edit_btn" onclick="cart_edit(this)">编辑</button>
+                        <button class="save_btn" onclick="cart_save(this)">完成</button>
+                    </div>
+                </div>
+                <!--购物车商品主体信息-->
+                <div class="cartGoods_infoBox">
+                    <div class="cart_infoTop">
+                      <div class="cart_check">
+                          <input type="checkbox">
+                      </div>
+                      <div class="cartGoods_info">
+                          <a href="#/detail/{{item.goods.id}}">
+                          <div class="cartGoods_pic">
+                              <img src="{{imageURL}}goodsImages/{{item.goods.firstImage}}" />
+                          </div>
+                          </a>
+                          <div class="cartGoods_name"><!--13rem-->
+                              <div class="cartGoods_name_inner">{{item.goods.name}}</div>
+                              <div class="cartGoods_price">
+                                  <span>￥{{item.goods.originalPrice}}</span><span>￥{{item.goods.currentPrice}}</span>
+                                  <span class="cart_goodsNum">&Chi;{{item.goodsNum}}</span>
+                              </div>
+                              <!--点击编辑之后-->
+                              <div class="edit_changeNum" style="padding: 0;">
+                                  <div class="changeNum_inner">
+                                      <button class="btn_minus"><i class="icon-minus"></i></button><input type="text" value="1"><button class="btn_plus"><i class="icon-plus-1"></i></button>
+                                  </div>
+                                  <div class="edit_delete" onclick="cart_delete()">删除</div>
+                              </div>
+
+                          </div>
+
+
+                      </div>
+                    </div>
+                    <div class="cart_infoBot">
+                        <p>{{item.goods.field}}</p>
+                    </div>
+                </div>
+
+                <!--购物车页面，确认删除-->
+                <div id="confirm_deleteBg">
+                    <div id="confirm_delete">
+                        <div class="confirm_top">确定要删除这件商品吗？</div>
+                        <div class="confirm_bot">
+                            <button onclick="cart_cancel();">取消</button>
+                            <button onclick="cartdelete_confirm(this , '{{item.id}}');">确定</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <!----- 结算 ----->
+    <div id="cartPayBox"  ng-if="null != user">
+        <div id="choseAll">
+            <input type="checkbox" id="checkBoxAll">
+            <label for="checkBoxAll">全选</label>
+        </div>
+        <div id="cartPay_count">
+            <p>合计：<span>￥0.00</span></p>
+        </div>
+        <div id="cartPay">
+            <p>结算(<span>0</span>)</p>
+        </div>
+    </div>
+</div>
+

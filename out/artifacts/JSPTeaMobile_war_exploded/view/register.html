@@ -1,0 +1,43 @@
+<div id="pageRegister" ng-controller="registerController">
+    <div id="registerTitle">
+        <p><a href="#/login"><i class="icon-left-open"></i></a>一品茗香注册</p>
+    </div>
+    <div id="registerMain">
+        <form name="registerForm" novalidate="novalidate">
+            <div class="register_line">
+                <label for="userName">用户名</label>
+                <div class="register_input">
+                    <input type="text" id="userName" name="userName" placeholder="请填写用户名" ng-model="userName" required ng-minlength="4" ng-maxlength="12" ng-pattern="/([a-zA-Z]|[^u4E00-u9FA5])+\w*/">  <!-- /([a-zA-Z]|[^u4E00-u9FA5])+\w*/ -->
+                    <span ng-show="registerForm.userName.$dirty && registerForm.userName.$invalid">字母或汉字开头，长度4-12位，不可包含特殊字符</span>
+                    <span ng-show="registerForm.userName.$error.required">请填写用户名。</span>
+                </div>
+            </div>
+            <div class="register_line">
+                <label for="password">密码</label>
+                <div class="register_input">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="密码" ng-model="password" required ng-minlength="6" ng-maxlength="22">
+                    <span ng-show="registerForm.password.$dirty && registerForm.password.$invalid">长度为6-22位任意字符</span>
+                    <span ng-show="registerForm.password.$error.required">请填写密码。</span>
+                </div>
+            </div>
+            <div class="register_line">
+                <label for="password_again">重复密码</label>
+                <div class="register_input">
+                    <input type="password" class="form-control" id="password_again" name="password_again" placeholder="请再次输入密码" ng-model="password_again" required ng-minlength="6" ng-maxlength="22">
+                    <span ng-show="registerForm.password.$valid && password_again != password">两次密码不一致</span>
+                    <span ng-show="registerForm.password_again.$error.required">请再次输入密码。</span>
+                </div>
+            </div>
+            <!--<div class="register_line">-->
+
+            <!--</div>-->
+            <div class="btn_submit">
+                <button type="submit" ng-disabled="registerForm.userName.$dirty && registerForm.userName.$invalid ||
+  registerForm.password.$dirty && registerForm.password.$invalid">注册</button>
+            </div>
+        </form>
+    </div>
+
+    <!--注册和登录页面 - 底部覆盖主导航栏-->
+    <div class="bottom_cover"></div>
+</div>

@@ -1,0 +1,112 @@
+<!--<%---------- 首页 -----------%>-->
+<div id="pageIndex" ng-controller="homeController">
+    <!--<%--首页 - 轮播图--%>-->
+    <div id="adPic"></div>
+    <style type="text/css">
+        #adPic{
+            background: url("{{imageURL}}alternate3.jpg");
+            -webkit-animation: changeBg 9s infinite;
+            -o-animation: changeBg 9s infinite;
+            animation: changeBg 9s infinite;
+        }
+        @-webkit-keyframes changeBg {
+            0%{background: url("{{imageURL}}alternate3.jpg") center center;background-size: cover;}
+            33%{background: url("{{imageURL}}alternate2.jpg") center center;background-size: cover;}
+            66%{background: url("{{imageURL}}alternate1.jpg") center center;background-size: cover;}
+            100%{background: url("{{imageURL}}alternate3.jpg") center center;background-size: cover;}
+        }
+    </style>
+    <!--<%--首页- 快速导航--%>-->
+    <div id="quickLink" class="clearFix">
+        <div id="quick_left" style="background: url('http://139.224.0.122:8080/m.teac/images/AD0I25eKBRAEGAAg_pefvgUovJeqvQYwuQM4sgI.png') center;">
+            <!--<%--茶叶图片--%>-->
+        </div>
+        <div id="quick_right">
+            <!--<%--快速导航块--%>-->
+            <ul>
+                <li>
+                    <a href="#/goodsPage">
+                        <i class="icon-th-list"></i>
+                        <p>全部</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/kinds">
+                    <i class="icon-hashtag"></i>
+                    <p>分类</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#/goodsPage">
+                        <i class="icon-envira"></i>
+                        <p>热销</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-user-1"></i>
+                        <p>关于我们</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--<%--推荐商品--%>-->
+    <div id="recommend" class="clearFix" ng-controller="recommendController">
+        <a>
+        <div class="modelTitle">
+            <span>推荐商品</span>
+            <!--<i class="icon-right-open"></i>-->
+        </div>
+        </a>
+        <div id="recommendGoods">
+            <div class="recommendBox" ng-repeat="item in homeData">
+                <a href="#/detail/{{item.id}}">
+                <div class="recommendPic">
+                    <img src="{{imageURL}}goodsImages/{{item.firstImage}}" alt="{{item}}">
+                </div>
+                <div class="recommendInfo">
+                    <p class="recommend_name ellipsis">{{item.name}}</p>
+                    <P class="recommend_price"><span>￥{{item.currentPrice}}</span><span>￥{{item.originalPrice}}</span></P>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-----首页推荐文章----->
+    <div id="articleIndex" ng-controller="cultureController">
+        <a href="#/culture">
+        <div class="modelTitle">
+            <span>茶文化</span>
+            <i class="icon-right-open"></i>
+        </div>
+        </a>
+        <!--茶文化-->
+        <div id="articleIndexList">
+            <div id="firstArticle">
+                <a href="#/article/{{homeCultureFirst.id}}">
+                    <div id="firstImg" style="background: url('{{imageURL}}article/{{homeCultureFirst.image}}') center;">
+                        <div id="firstName">
+                            {{homeCultureFirst.name}}
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="articleList">
+                <ul>
+                    <li ng-repeat="c in homeCulture"><a href="#/article/{{c.id}}"><i class="icon-circle"></i>{{c.name}}<i class="icon-right-open"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!---------底部版权声明------------>
+    <div id="copyright">
+        <p>版权所有 &copy; 2016- 一品茗香</p>
+        <p>开发者邮箱：bragg_chen@163.com</p>
+    </div>
+
+</div>

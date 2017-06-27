@@ -1,0 +1,38 @@
+<div id="pageLogin" ng-controller="loginController">
+    <!--登录页标题 - 覆盖搜索框-->
+    <div id="loginTitle">
+        <p><a href="javascript:void(0)" onclick="window.history.back();"><i class="icon-left-open"></i></a>一品茗香登录</p>
+    </div>
+    <!--登录页主题内容-->
+    <form name="loginForm" novalidate="novalidate" ng-submit="processForm()">
+    <div id="loginMain">
+        <div class="login_line">
+            <div class="head">账户</div>
+            <div class="login_input">
+                <input type="text" name="userName" placeholder="手机号/邮箱/用户名" ng-model="user.name">
+            </div>
+        </div>
+        <div class="login_line">
+            <div class="head">密码</div>
+            <div class="login_input">
+                <input type="password" name="password" placeholder="请输入密码" ng-model="user.password">
+            </div>
+        </div>
+
+        <div class="w_info" id="w_login">
+            <span>用户名和密码不匹配</span>
+        </div>
+
+        <div class="btn_submit">
+            <input type="submit" value="登录">
+        </div>
+    </div>
+    </form>
+    <div id="login_opt">
+        <a href="#/register">免费注册</a>
+        <a href="#/forget">忘记密码</a>
+    </div>
+
+    <!--注册和登录页面 - 底部覆盖主导航栏-->
+    <div class="bottom_cover">{{user.name}}{{user.password}}</div>
+</div>

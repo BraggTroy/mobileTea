@@ -1,0 +1,70 @@
+<!--<%---------- 个人中心 ----------%>-->
+<div id="pageMine" ng-controller="mineController" >
+    <!--顶部 - 覆盖搜索框-->
+    <div id="meTitle">个人中心</div>
+    <!--主体内容-->
+    <div id="meMain">
+        <!--头部-->
+        <div id="meTop"> <!-- 背景图片 -->
+            <div id="meName">
+                <p class="userName" ng-if="null != user">{{user.name}}</p>
+                <p class="userName" ng-if="null == user"><a href="#/login">点击登录</a> </p>
+                <p>感谢您对本店的支持</p>
+            </div>
+            <div id="meImage"><img src="{{imageURL}}usersImages/noimage.jpg"></div>
+        </div>
+        <!--内容-->
+        <div id="meContent" ng-if="null == user">
+            <!--订单-->
+            <div id="meOrders">
+                <div class="me_line"><a href="#/login"><i class="icon-doc-text-inv"></i>未发货<i class="icon-right-open"></i></a></div>
+                <div class="me_line"><a href="#/login"><i class="icon-list-bullet"></i>已发货<i class="icon-right-open"></i></a></div>
+                <div class="me_line"><a href="#/login"><i class="icon-calendar"></i>全部订单<i class="icon-right-open"></i></a></div>
+            </div>
+            <!--个人资料-->
+            <div id="meInfo">
+                <div class="me_line"><a href="#/login"><i class="icon-vcard"></i>个人资料<i class="icon-right-open"></i></a></div>
+                <div class="me_line"><a href="#/login"><i class="icon-tags"></i>收货地址<i class="icon-right-open"></i></a></div>
+            </div>
+
+        </div>
+        <div id="meContent" ng-if="null != user">
+            <!--订单-->
+            <div id="meOrders">
+                <div class="me_line"><a href="#"><i class="icon-doc-text-inv"></i>未发货<i class="icon-right-open"></i></a></div>
+                <div class="me_line"><a href="#"><i class="icon-list-bullet"></i>已发货<i class="icon-right-open"></i></a></div>
+                <div class="me_line"><a href="#"><i class="icon-calendar"></i>全部订单<i class="icon-right-open"></i></a></div>
+            </div>
+            <!--个人资料-->
+            <div id="meInfo">
+                <div class="me_line"><a href="#"><i class="icon-vcard"></i>个人资料<i class="icon-right-open"></i></a></div>
+                <div class="me_line"><a href="#"><i class="icon-tags"></i>收货地址<i class="icon-right-open"></i></a></div>
+            </div>
+
+        </div>
+
+
+
+
+        <!--个人中心 - 底部-->
+        <div id="meBot">
+            <div class="ellipsis" ng-if="user != null">{{user.name}}</div>
+            <div class="ellipsis " ng-if="user == null"><a href="#/login" class="color-4c">尚未登录……</a></div>
+            <div id="exit" onclick="userExit()" ng-if="null != user">退出登录</div>
+            <div id="exit" ng-if="null == user">退出登录</div>
+        </div>
+        <div id="personchen" ng-if="null != user">
+            <p><a href="http://139.224.0.122:8080/personchen/personchen.html">陈宝俊的个人简历 点击查看</a> </p>
+        </div>
+
+
+        <!--个人中心 - 信息弹框-->
+        <div id="pageMine_info">
+            <div id="1"></div>
+            <div id=""></div>
+        </div>
+
+
+    </div>
+
+</div>

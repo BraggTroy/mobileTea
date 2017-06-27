@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">-->
+
+    <title>一品茗香 - 在线茶叶特卖</title>
+    <link rel="icon" href="images/icon/tea.ico">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/fontello.css">
+
+
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <!--<script src="lib/jquery.js"></script>-->
+    <script src="http://s1.bdstatic.com/r/www/cache/static/jquery/jquery-1.10.2.min_65682a2.js"></script>
+
+    <script src="js/angularModule.js"></script>
+
+    <script>
+        (function firstInit(){
+            //设置列数
+            var colCount = 20;
+            //设置列宽
+            var colWidth = document.documentElement.clientWidth / colCount ;
+            //设置基础字号
+            document.querySelector('html').style.fontSize = colWidth +'px';
+        })();                //这样的写法属于闭包
+    </script>
+</head>
+<body ng-controller="indexController">
+<div id="main">
+    <!--<%-------------------------头部------------------------%>-->
+    <div id="header">
+        <div id="header_inner">
+            <div id="logo"><a href="#/"><img src="images/icon/teaLogo.png" alt="logo"></a></div>
+            <div id="form">
+                <form action="" method="get" onsubmit="">
+                    <div id="inputBox">
+                        <input type="text" name="searchText" id="searchText" value="搜索商品……">
+                        <!--<input type="image" src="images/icon/search.png" id="searchBtn">-->
+                        <button type="submit" id="searchBtn"><i class="icon-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--<%--热搜框--%>-->
+        <div id="hotSearch">
+            <p>西湖龙井</p>
+            <p>福建 碧螺春</p>
+            <p>玫瑰花茶</p>
+        </div>
+    </div>
+
+    <!--<%-------------------------主体内容------------------------%>-->
+    <div id="container" ng-view></div>
+
+
+    <!--<%-------------------------菜单导航------------------------%>-->
+    <div id="nav">
+        <a href="#/">
+        <div id="index" class="active">
+            <p><i class="icon-home"></i></p>
+            <p>首页</p>
+        </div></a>
+        <a href="#/goodsPage">
+        <div id="goods">
+            <p><i class="icon-th-list"></i></p>
+            <p>全部商品</p>
+        </div></a>
+        <a href="#/cartPage">
+        <div id="cart">
+            <p><i class="icon-basket"></i></p>
+            <p>购物车</p>
+        </div></a>
+        <a href="#/minePage">
+        <div id="mine">
+            <p><i class="icon-torso"></i></p>
+            <p>我的</p>
+
+        </div></a>
+    </div>
+</div>
+
+<script src="js/index.js"></script>
+<script>
+//    window.onunload = function(){
+//        localStorage.removeItem("cbj-tea-GoodsList");
+//    }
+    window.onbeforeunload=onclose;
+    function onclose()
+    {
+        if(event.clientX>document.body.clientWidth&&event.clientY<0||event.altKey)
+        {
+//            localStorage.removeItem("cbj-tea-GoodsList");
+            localStorage.clear();
+        }
+    }
+</script>
+</body>
+</html>

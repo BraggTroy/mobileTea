@@ -1,0 +1,15 @@
+<div id="pageCulture" ng-controller="cultureController">
+    <!--标题-->
+    <div id="cultureTitle">
+        <a href="#/"><i class="icon-left-open"></i></a> 茶文化
+    </div>
+    <!--主体-->
+    <div id="cultureMain">
+        <a href="#/article/{{item.id}}" ng-repeat="item in data">
+        <div class="cultureBox">
+            <div class="cultureName">{{item.name}}……</div>
+            <div class="cultureKinds">{{item.kinds.name}}</div>
+        </div>
+        </a>
+    </div>
+</div>

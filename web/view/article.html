@@ -1,0 +1,17 @@
+<div id="pageArticle" ng-controller="articleController">
+    <div id="articleTitle">
+        <a href="#/culture"><i class="icon-left-open"></i> </a>
+        {{article.kinds.name}}
+    </div>
+
+    <div id="articleMain">
+        <div id="articleName">{{article.name}}</div>
+        <div id="articleTime">{{article.time}}</div>
+
+        <div id="articleText">
+            <div class="imgBox"><img src="../images/article/{{article.image}}"></div>
+            <p ng-repeat="txt in text">{{txt}}</p>
+        </div>
+        <div id="articleBot">&copy; 茶文化</div>
+    </div>
+</div>

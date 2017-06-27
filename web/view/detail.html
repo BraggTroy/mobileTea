@@ -1,0 +1,65 @@
+<!------------ 商品详情页 ------------>
+<div id="pageDetail" ng-controller="detailController">
+    <div id="detailTitle">
+        <div id="baseInfo"><a href="javascript:void(0)" onclick="window.history.back();"><i class="icon-left-open"></i></a>基本信息</div>
+        <!--<div id="detailInfo">商品详情</div>-->
+    </div>
+    <!--基本信息-->
+    <div id="detail_top">
+        <div id="detailPicBox" style="background: url('{{imageURL}}goodsImages/{{data.firstImage}}') center; background-size: cover;">
+            <!-- 以背景图片的方式展示商品的第一张图片 -->
+        </div><div id="detailGoodsName">
+            {{data.name}}
+        </div><div id="detailPrice">
+            <p>￥<span>{{data.currentPrice}}</span></p>
+        </div><div id="detailOriginalPrice">
+            <p>价格：<span>￥{{data.originalPrice}}</span></p>
+        </div><div id="soldNum-field">
+            <div>销量{{data.soldNumber}}{{data.unit}} &nbsp 库存{{data.number}}{{data.unit}}</div>
+            <div>{{data.field}}</div>
+        </div>
+    </div>
+
+    <!--商品详情-->
+    <div id="detail_bottom">
+        <div id="detail_title">
+            <div>商品详情</div>
+        </div>
+        <div id="detailEffect">功效：{{data.effect}}</div>
+        <!--<div id="detailField">产地：{{data.field}}</div>-->
+        <div id="detailText">简介：{{data.goodsTxt}}</div>
+        <div id="detailImages">
+            <img src="{{imageURL}}goodsImages/{{item}}" alt="#" ng-repeat="item in images" />
+        </div>
+    </div>
+    <div id="detail_copyright">
+        &copy; 2016 一品茗香
+    </div>
+
+    <!--加入购物车-->
+    <div id="addToCart">
+        <div id="addNum">
+            <div id="addNum_inner">
+                <button class="btn_minus" ng-click="countdelete()"><i class="icon-minus"></i></button><input type="number" min="1" ng-model="count" ><button class="btn_plus" ng-click="count = count + 1"><i class="icon-plus-1"></i></button>
+            </div>
+        </div>
+        <div id="addBtn">
+            <button id="btn_addTo" ng-if="null == user" onclick="noUser_click();">加入购物车</button>
+            <button id="btn_addTo" ng-if="null != user" ng-click="addToCart()">加入购物车</button>
+        </div>
+    </div>
+</div>
+
+<!--商品详情页 - 消息提示-->
+<div id="detail_infoBox">已加入购物车</div>
+
+<!--商品详情页 - 未登录点击添加-->
+<div id="nouserbtn">
+    <div id="nouserbtn_in">
+        <p>您尚未登录，请先登录！</p>
+        <div>
+            <button onclick="detail_cancel();">暂不登录</button>
+            <button onclick="location.href='#/login'">确定</button>
+        </div>
+    </div>
+</div>
